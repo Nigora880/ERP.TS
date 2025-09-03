@@ -8,9 +8,20 @@ body{
 }
 
 .ant-input-outlined:hover{
-    border-color: var(--clr-gold) !important;
+    border-color: #bc8e5b !important;
 }
 .ant-input-outlined:focus-whithin{
-    border-color: var(--clr-gold) !important;
+    border-color: #bc8e5b !important;
     box-shadow: 0 0 0 2px rgba(120, 86, 48, 0.762) !important;
+}
+
+.ant-menu-item-selected {
+    background-color: #bc8e5b !important;
+}
+
+.navbar-menu > li{
+    /* display: flex;
+    align-items: center;
+    justify-items: center; */
+    padding: 25px !important;
 }
