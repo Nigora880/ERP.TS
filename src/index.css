@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+:root {
+    --clr-gold: "#bc8e5b";
+}
 body{
     background-color: #f1f0ee;
+}
+
+.ant-input-outlined:hover{
+    border-color: var(--clr-gold) !important;
+}
+.ant-input-outlined:focus-whithin{
+    border-color: var(--clr-gold) !important;
+    box-shadow: 0 0 0 2px rgba(120, 86, 48, 0.762) !important;
 }

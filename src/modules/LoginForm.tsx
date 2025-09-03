@@ -1,48 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input, Flex } from 'antd';
+import { Button, Form, Input } from 'antd';
+import axios from 'axios';
+import { API } from '../hooks';
+import { useCookies } from 'react-cookie';
+import { toast } from 'react-toastify';
+import { Logo } from '../assets/img';
 
-const App: React.FC = () => {
+const App: React.FC = () => { 
+  const [, setCookies] = useCookies(["accessToken"])
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const onFinish = (values: any) => {
-    console.log('Received values of form: ', values);
+    setIsLoading(true)
+    axios.post(`${API}/user/login`, values).then(res => {
+     toast.success("Muvaffaqiyat kirdinggiz" , {
+      onClose: () => {
+         setIsLoading(false);
+         setCookies("accessToken", res.data.accessToken)
+         location.pathname = "/"
+      },
+      autoClose: 2000,
+     })
+    })
   };
 
   return (
-    <Form
-    className='!w-full'
-      name="login"
-      initialValues={{ remember: true }}
-      style={{ maxWidth: "100vh" }}
-      onFinish={onFinish}
-    >
+    <div className='w-full'>
+      <div className='flex items-center mb-[20px] text-[#bc8e5b] gap-[10px] justify-center'>
+        <img src={Logo} alt="" width={50} height={60}/>
+        <span className='font-normal text-black text-[20px]'>Admin paneli</span>
+      </div>
+    <Form autoComplete='off' className='!w-full' name="login" style={{ maxWidth: "100%" }} onFinish={onFinish}>
+
       <Form.Item
         name="username"
-        rules={[{ required: true, message: 'Please input your Username!' }]}
+        rules={[{ required: true, message: 'Iltimos, username kiriting' }]}
       > 
-        <Input prefix={<UserOutlined />} placeholder="Username" />
+        <Input size='large' allowClear prefix={<UserOutlined />} placeholder="Username" />
       </Form.Item>
       <Form.Item
         name="password"
-        rules={[{ required: true, message: 'Please input your Password!' }]}
+        rules={[{ required: true, message: 'Iltimos, parol kiriting' }]}
       >
-        <Input prefix={<LockOutlined />} type="password" placeholder="Password" />
-      </Form.Item>
-      <Form.Item>
-        <Flex justify="space-between" align="center">
-          <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-          <a href="">Forgot password</a>
-        </Flex>
+        <Input.Password size='large' allowClear prefix={<LockOutlined />} type="password" placeholder="Maxfiy so'z" />
       </Form.Item>
 
-      <Form.Item>
-        <Button block type="primary" htmlType="submit">
-          Log in
+        <Button loading={isLoading} className='!bg-[#bc8e5b]' size='middle' block type="primary" htmlType="submit">
+         Kirish
         </Button>
-        or <a href="">Register now!</a>
-      </Form.Item>
     </Form>
+    </div>
   );
 };
 

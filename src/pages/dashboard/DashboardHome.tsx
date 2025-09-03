@@ -1,8 +1,11 @@
+import { useEffect } from "react";
+import { PATH } from "../../components";
 
 const DashboardHome = () => {
-  return (
-    <div>DashboardHome</div>
-  )
+  useEffect(() => {
+    location.pathname = PATH.groups
+  }, [])
+  return "";
 }
 
 export default DashboardHome
