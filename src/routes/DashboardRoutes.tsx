@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import {PATH} from "../components"
-import { DashboardHome, Groups, Stacks, Students, Teachers } from "../pages"
+import { DashboardHome, Groups, Stacks, StacksCreate, StacksMore, Students, Teachers } from "../pages"
 import { Header, Navbar } from "../modules"
 import { useState } from "react"
 
@@ -11,7 +11,11 @@ const DashboardRoutes = () => {
    {id:2, path:PATH.groups, element:<Groups/>},
    {id:3, path:PATH.teachers, element:<Teachers/>},
    {id:4, path:PATH.students, element:<Students/>},
-   {id:1, path:PATH.home, element:<DashboardHome/>},
+   {id:5, path:PATH.home, element:<DashboardHome/>},
+   {id:6, path:PATH.stacksCreate, element:<StacksCreate/>},
+   {id:7, path:PATH.stacksUpdate, element:<StacksCreate/>},
+   {id:8, path:PATH.stacksMore, element:<StacksMore/>},
+
   ]
   return (
     <div className="flex">
