@@ -2,7 +2,7 @@ import { lazy } from "react";
 import LoginHome from "./dashboard/LoginHome";
 import DashboardHome from "./dashboard/DashboardHome";
 import Groups from "./dashboard/Groups";
-import Stacks from "./dashboard/Stacks";
+import Stacks from "./stacks/Stacks";
 import Teachers from "./dashboard/Teachers";
 import Students from "./dashboard/Students";
 

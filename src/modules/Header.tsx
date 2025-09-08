@@ -2,6 +2,7 @@ import { BellOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined } fr
 import { Badge, Button, Modal } from "antd"
 import { useState, type Dispatch, type FC, type SetStateAction } from "react"
 import { useCookies } from "react-cookie"
+import { toast } from "react-toastify"
 
 const Header:FC<{collapse:boolean, setCollapse:Dispatch<SetStateAction<boolean>>}> = ({collapse, setCollapse}) => {
   const [,,removeCookie] = useCookies(['accessToken'])
@@ -10,8 +11,14 @@ const Header:FC<{collapse:boolean, setCollapse:Dispatch<SetStateAction<boolean>>
 
   function handleLogOut(){
     setLoading(true)
-    removeCookie("accessToken")
-    location.pathname = "/"
+    toast.success("Chiqish ketyabsiz!", {
+      onClose: () => {
+         removeCookie("accessToken")
+         location.pathname = "/"
+         setLoading(false)
+      },
+      autoClose: 1000,
+    })
   }
   return (
   <div className="flex items-center p-[15px] justify-between bg-[#001529]">

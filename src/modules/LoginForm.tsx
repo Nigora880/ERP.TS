@@ -6,6 +6,7 @@ import { API } from '../hooks';
 import { useCookies } from 'react-cookie';
 import { toast } from 'react-toastify';
 import { Logo } from '../assets/img';
+import { PATH } from '../components';
 
 const App: React.FC = () => { 
   const [, setCookies] = useCookies(["accessToken"])
@@ -13,13 +14,13 @@ const App: React.FC = () => {
   const onFinish = (values: any) => {
     setIsLoading(true)
     axios.post(`${API}/user/login`, values).then(res => {
-     toast.success("Muvaffaqiyat kirdinggiz" , {
+     toast.success("Muvaffaqiyatli kirdinggiz" , {
       onClose: () => {
          setIsLoading(false);
          setCookies("accessToken", res.data.accessToken)
-         location.pathname = "/"
+         location.pathname = PATH.stacksUpdate
       },
-      autoClose: 2000,
+      autoClose: 1000,
      })
     })
   };
