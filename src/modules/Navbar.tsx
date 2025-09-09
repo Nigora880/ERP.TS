@@ -7,10 +7,10 @@ import type { FC } from "react"
 
 const Navbar:FC<{collapse:boolean}> = ({collapse}) => {
   const items = [
-    {key:"1", icon:<UsergroupAddOutlined className="!text-[17px]" />, label:<Link to={PATH.stacks}>Yo'nalishlar</Link>},
-    {key:"2", icon:<UngroupOutlined className="!text-[17px]"/>, label:<Link to={PATH.groups}>Guruhlar</Link>},
-    {key:"3", icon:<UserOutlined className="!text-[17px]" />, label:<Link to={PATH.teachers}>Ustozlar</Link>},
-    {key:"4", icon:<OpenAIOutlined className="!text-[17px]" />, label:<Link to={PATH.students}>O'quvchilar</Link>},
+    {key:"1", icon:<UsergroupAddOutlined className="!text-[20px]" />, label:<Link className="!text-[17px]" to={PATH.stacks}>Yo'nalishlar</Link>},
+    {key:"2", icon:<UngroupOutlined className="!text-[20px]"/>, label :<Link className="!text-[17px]" to={PATH.groups}>Guruhlar</Link>},
+    {key:"3", icon:<UserOutlined className="!text-[20px]" />, label :<Link className="!text-[17px]" to={PATH.teachers}>Ustozlar</Link>},
+    {key:"4", icon:<OpenAIOutlined className="!text-[20px]" />, label :<Link className="!text-[17px]" to={PATH.students}>O'quvchilar</Link>},
 
   ]
   return (
