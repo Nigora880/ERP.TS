@@ -11,7 +11,7 @@ const Header:FC<{collapse:boolean, setCollapse:Dispatch<SetStateAction<boolean>>
 
   function handleLogOut(){
     setLoading(true)
-    toast.success("Chiqish ketyabsiz!", {
+    toast.success("Chiqib ketyabsiz!", {
       onClose: () => {
          removeCookie("accessToken")
          location.pathname = "/"

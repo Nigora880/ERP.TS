@@ -7,6 +7,7 @@ import type { GroupsType } from "../../@types/GroupsType"
 import { Button, Modal } from "antd"
 import { ArrowLeftOutlined, DeleteFilled, EditFilled, MoreOutlined } from "@ant-design/icons"
 import { CustomTable } from "../../components"
+import { CustomDelete } from "../../service/delete"
 
 const StacksMore = () => {
   const navigate = useNavigate()
@@ -43,6 +44,7 @@ function handleDeleteStack() {
       autoClose: 1000,
     })
   })
+  // CustomDelete(`/stacks/${deleteId}`,  setDeleteLoading, setDeleteModal, navigate)
 }
 // delete part
 

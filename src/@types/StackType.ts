@@ -3,4 +3,6 @@ export interface StackType {
     name:string;
     image:string;
     createdAt:string;
+    label?:string,
+    value?:number
 }

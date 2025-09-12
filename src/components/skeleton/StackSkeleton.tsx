@@ -21,6 +21,12 @@ const StackSkeleton = () => {
       <div className="w-[260px] h-[355px]">
         <Skeleton.Button className="!w-full !h-full" active/>
       </div>
+      <div className="w-[260px] h-[355px]">
+        <Skeleton.Button className="!w-full !h-full" active/>
+      </div>
+      <div className="w-[260px] h-[355px]">
+        <Skeleton.Button className="!w-full !h-full" active/>
+      </div>
     </div>
   )
 }
