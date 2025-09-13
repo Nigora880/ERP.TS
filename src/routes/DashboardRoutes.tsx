@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import {PATH} from "../components"
-import { DashboardHome, GroupCreate, Groups, Stacks, StacksCreate, StacksMore, Students, Teachers, TeachersCreate } from "../pages"
+import { DashboardHome, GroupCreate, Groups, GroupsMore, Stacks, StacksCreate, StacksMore, Students, Teachers, TeachersCreate } from "../pages"
 import { Header, Navbar } from "../modules"
 import { useState } from "react"
 import StudentsCreate from "../pages/dashboard/students/StudentsCreate"
@@ -10,6 +10,7 @@ const DashboardRoutes = () => {
   const routeList = [
    {id:1, path:PATH.stacks, element:<Stacks/>},
    {id:2, path:PATH.groups, element:<Groups/>},
+   {id:12, path:PATH.groupsMore, element:<GroupsMore/>},
    {id:3, path:PATH.teachers, element:<Teachers/>},
    {id:4, path:PATH.students, element:<Students/>},
    {id:5, path:PATH.home, element:<DashboardHome/>},
@@ -18,6 +19,8 @@ const DashboardRoutes = () => {
    {id:8, path:PATH.stacksMore, element:<StacksMore/>},
    {id:9, path:PATH.groupsCreate, element:<GroupCreate/>},
    {id:10, path:PATH.teachersCreate, element:<TeachersCreate/>},
+   {id:13, path:PATH.teachersUpdate, element:<TeachersCreate/>},
+
    {id:11, path:PATH.studentsCreate, element:<StudentsCreate/>},
 
 

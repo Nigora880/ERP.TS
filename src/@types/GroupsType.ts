@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { TeacherType } from "./TeacherType";
 
 export interface GroupsType {
     id:number;
@@ -23,4 +24,7 @@ export interface GroupsType {
     roomName?:string,
     stackName?:string,
     action:ReactNode
+    mainTeachers?:TeacherType[],
+    Students?:any,
+    supportTeachers?:TeacherType[]
 }

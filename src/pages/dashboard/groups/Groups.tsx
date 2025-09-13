@@ -6,6 +6,7 @@ import type { GroupsType } from "../../../@types/GroupsType";
 import { MoreOutlined } from "@ant-design/icons";
 import type { TeacherType } from "../../../@types/TeacherType";
 import type { StackType } from "../../../@types/StackType";
+import { useNavigate } from "react-router-dom";
 
 const Groups = () => {
   const column = [
@@ -18,6 +19,7 @@ const Groups = () => {
   const [groups, setGroups] = useState<GroupsType[]>([])
   const [teachers, setTeachers] = useState<{ label: string, value: string }[]>([])
   const [stacks, setStacks] = useState<{ label: string, value: string }[]>([])
+  const navigate = useNavigate()
 
   // Search part
   const [_loading, setLoading] = useState<boolean>(true)
@@ -82,7 +84,7 @@ const Groups = () => {
         item.key = index + 1
         item.roomName = item.room.name
         item.stackName = item.stack.name
-        item.action = <Button size="middle" icon={<MoreOutlined className="!text-[18px] translate-y-[2px]" />} type="primary" className="!bg-[#bc8e5b] !p-0"></Button>
+        item.action = <Button  onClick={() => navigate(`/groups/${item.id}`)} size="middle" icon={<MoreOutlined className="!text-[18px] translate-y-[2px]" />} type="primary" className="!bg-[#bc8e5b] !p-0"></Button>
         return item
       }));
     }).finally(() => {

@@ -25,7 +25,6 @@ import type { ReactNode } from "react";
       createdAt: string;
     };
   
-    // frontend uchun optional
     label?:string,
     value?:string,
     key?:number,

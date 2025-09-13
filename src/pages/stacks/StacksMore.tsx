@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import type { StackType } from "../../@types/StackType"
 import { API, instance } from "../../hooks"
-import { toast } from "react-toastify"
 import type { GroupsType } from "../../@types/GroupsType"
 import { Button, Modal } from "antd"
 import { ArrowLeftOutlined, DeleteFilled, EditFilled, MoreOutlined } from "@ant-design/icons"
@@ -16,7 +15,7 @@ const StacksMore = () => {
   const [deleteModal, setDeleteModal] = useState<boolean>(false)
 
 
-  // delete part
+ // delete part
 const [deleteId, setDeleteId] = useState<string | null | undefined>(null)
 const [deleteLoading, setDeleteLoading] = useState<boolean>(false)
 function handleDelete() {
@@ -24,34 +23,13 @@ function handleDelete() {
   setDeleteId(id)
 }
 function handleDeleteStack() {
-  setDeleteLoading(true)
-  instance().delete(`/stacks/${deleteId}`).then(() => {
-    toast.success("O'chirildi", {
-      onClose: () => {
-        setDeleteLoading(false);
-        setDeleteModal(false)
-        navigate(-1)
-      },
-      autoClose: 1000,
-    })
-  }).catch(() => {
-    toast.error("bu yonalish ichida guruh mavjud", {
-      onClose: () => {
-        setDeleteLoading(false);
-        setDeleteModal(false)
+  CustomDelete(`/stacks/${deleteId}`,  setDeleteLoading, setDeleteModal, navigate)
+} 
 
-      },
-      autoClose: 1000,
-    })
-  })
-  // CustomDelete(`/stacks/${deleteId}`,  setDeleteLoading, setDeleteModal, navigate)
-}
 // delete part
 
 useEffect(() => {
-  instance().get(`/stacks/${id}`).then(res => {
-    setStacksData(res.data)
-  })
+  instance().get(`/stacks/${id}`).then(res => setStacksData(res.data))
 }, [])
 
 const [stackGroups, setStackGroup] = useState([])
